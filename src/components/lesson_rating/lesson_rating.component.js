@@ -35,14 +35,16 @@ const LessonRating = () => {
         <Text title="how useful did you find this lesson?"></Text>
       )}
       {submitStatus && <Text title={texts[starIdx - 1]}></Text>}
-      {texts.map((item, index) => (
-        <Star
-          key={index}
-          id={index + 1}
-          selected={starIdx >= `${index + 1}` && true}
-          onClick={handleStarClick}
-        ></Star>
-      ))}
+      <StarsPanel>
+        {texts.map((item, index) => (
+          <Star
+            key={index}
+            id={index + 1}
+            selected={starIdx >= `${index + 1}` && true}
+            onClick={handleStarClick}
+          ></Star>
+        ))}
+      </StarsPanel>
       {!submitStatus && (
         <Button
           type="button"
@@ -56,19 +58,25 @@ const LessonRating = () => {
       {submitStatus && (
         <Button
           type="button"
-          label="Edit"
+          label="edit"
           bgcolor="transparent"
           color="black"
           radius="42px"
+          txtdecoration="underline"
+          txtbold="800"
           onClick={handleEditClick}
         ></Button>
       )}
     </LessonRatingPanel>
   );
 };
+const StarsPanel = styled.div`
+  padding: 15px 0 25px 0;
+`;
 const LessonRatingPanel = styled.div`
-  margin: 2rem auto;
+  margin: 0 auto;
   text-align: center;
-  width: 30%;
+  width: 350px;
+  padding: 17px;
 `;
 export default LessonRating;
