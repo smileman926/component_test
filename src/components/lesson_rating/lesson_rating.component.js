@@ -10,7 +10,11 @@ const LessonRating = () => {
 
   const handleSubmitClick = (e) => {
     if (starIdx === 0) return;
-    setSubmitStatus(true);
+    const txt = document.getElementById("feedback")
+    txt.style.color = "transparent"
+    setTimeout(() => {
+      setSubmitStatus(true);
+    }, 200);
   };
   const handleEditClick = (e) => {
     setSubmitStatus(false);
@@ -32,7 +36,7 @@ const LessonRating = () => {
   return (
     <LessonRatingPanel>
       {!submitStatus && (
-        <Text title="how useful did you find this lesson?"></Text>
+        <Text id="feedback" title="how useful did you find this lesson?"></Text>
       )}
       {submitStatus && <Text title={texts[starIdx - 1]}></Text>}
       <StarsPanel>
@@ -78,5 +82,6 @@ const LessonRatingPanel = styled.div`
   text-align: center;
   width: 350px;
   padding: 17px;
+
 `;
 export default LessonRating;

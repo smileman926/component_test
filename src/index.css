@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'FS Split Sans Trial';
+  font-style: normal;
+  src: local('FS Split Sans Trial'), local('FS Split Sans Trial'),
+    url('./fonts/FSSplitSansWeb-Regular.woff') format('woff'), 
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
